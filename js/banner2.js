@@ -66,10 +66,19 @@ const banner2 = {
         this.right.addEventListener('click', () => {
             this.rightOffset()
         })
+        //启动自动轮播
         this.autoPlay()
+        //当鼠标悬停在图片区域时，停止自动轮播
+        this.imgsContainer.addEventListener('mouseover', () => {
+            clearInterval(this.timer)
+        })
+        //当鼠标离开图片区域时，重新启动自动轮播
+        this.imgsContainer.addEventListener('mouseout', () => {
+            this.autoPlay()
+        })
     },
     autoPlay(){
-        
+        //判断当前方向，实现自动来回轮播
         if(this.rightDirection){
             this.timer = setInterval(() => {
                 this.rightOffset()

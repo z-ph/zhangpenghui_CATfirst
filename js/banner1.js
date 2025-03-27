@@ -13,7 +13,7 @@ const banner = {
     imgContainer: find('.img-container'),
     imgs: findAll('.img-container .img'),
     imgsNum: null,
-    timer:null,
+    timer: null,
     init() {
         //先给每个div元素放置不同的图片
         this.imgs.forEach((item, index) => {
@@ -22,11 +22,40 @@ const banner = {
         //辅助实现无缝轮播图效果
         this.imgsCircle()
         //将第三张和第四张的图片里的文字和按钮背景颜色设置为白色,按钮字体颜色设置为黑色
-        for(let i =2;i<=3;i++){
+        for (let i = 2; i <= 3; i++) {
             this.imgs[i].style.color = 'white'
             this.imgs[i].querySelector('.btn').style.backgroundColor = 'white'
             this.imgs[i].querySelector('.btn').style.color = 'black'
         }
+        // 定义两个函数，分别用于向左和向右移动图片，方便后续绑定事件和移除事件
+        const leftMove = banner.leftMove.bind(banner)
+        const rightMove = banner.rightMove.bind(banner)
+
+        //通过监听器调用会改变this指向，需用用bind固定this指向banner
+        banner.leftBtn.addEventListener('click', leftMove)
+        banner.rightBtn.addEventListener('click', rightMove)
+
+
+        //防止缩放影响轮播效果
+        window.addEventListener('resize', () => {
+            banner.updateContainer()
+        })
+        // 监听过渡开始和结束事件，在过渡开始时移除点击事件，在过渡结束时添加点击事件
+        //防止过渡时触发点击事件导致潜在问题，如图片闪烁等
+        window.addEventListener('transitionstart', () => {
+            banner.leftBtn.removeEventListener('click', leftMove)
+            banner.rightBtn.removeEventListener('click', rightMove)
+        })
+
+        window.addEventListener('transitionend', () => {
+            banner.leftBtn.addEventListener('click', leftMove)
+            banner.rightBtn.addEventListener('click', rightMove)
+        })
+
+        //设置定时轮播
+        banner.timer = setInterval(() => {
+            banner.rightMove()
+        }, 3000)
     },
     /**
      * 实现图片轮播的无缝连接效果
@@ -39,14 +68,14 @@ const banner = {
         // 克隆首尾图片元素，用于创建无缝轮播效果
         const first = this.imgContainer.firstElementChild.cloneNode(true)
         const last = this.imgContainer.lastElementChild.cloneNode(true)
-        
+
         // 调整克隆的尾部图片元素位置，使其无缝连接到头部
         this.imgContainer.insertBefore(last, this.imgContainer.firstElementChild)
         this.imgContainer.appendChild(first)
-        
+
         // 更新图片数量，确保包括新添加的克隆图片
         this.imgsNum = this.imgs.length
-        
+
         // 设置克隆的尾部图片元素的样式，使其在视觉上与头部图片连接
         last.style.position = 'absolute'
         last.style.transform = 'translateX(-100%)'
@@ -127,43 +156,15 @@ const banner = {
         //开启定时器
         this.autoPlay()
     },
-    autoPlay(){
-        this.timer = setInterval(()=>{
+    autoPlay() {
+        this.timer = setInterval(() => {
             this.rightMove()
-        },3000)
+        }, 3000)
     },
 }
-// 初始化轮播图逻辑和数据
+// 初始化轮播图逻辑和数据以及绑定事件监听
 banner.init()
 
-// 定义两个函数，分别用于向左和向右移动图片，方便后续绑定事件和移除事件
-const leftMove = banner.leftMove.bind(banner)
-const rightMove = banner.rightMove.bind(banner)
 
-//通过监听器调用会改变this指向，需用用bind固定this指向banner
-banner.leftBtn.addEventListener('click',leftMove)
-banner.rightBtn.addEventListener('click',rightMove)
-
-
-//防止缩放影响轮播效果
-window.addEventListener('resize', () => {
-    banner.updateContainer()
-})
-// 监听过渡开始和结束事件，在过渡开始时移除点击事件，在过渡结束时添加点击事件
-//防止过渡时触发点击事件导致潜在问题，如图片闪烁等
-window.addEventListener('transitionstart',()=>{
-    banner.leftBtn.removeEventListener('click',leftMove)
-    banner.rightBtn.removeEventListener('click', rightMove)
-})
-
-window.addEventListener('transitionend',()=>{
-    banner.leftBtn.addEventListener('click', leftMove)
-    banner.rightBtn.addEventListener('click', rightMove)
-})
-
-//设置定时轮播
-banner.timer = setInterval(()=>{
-    banner.rightMove()
-},3000)
 
 
