@@ -19,6 +19,14 @@ const banner = {
         this.imgs.forEach((item, index) => {
             item.style.backgroundImage = `url(${preUrl}${imgsUrl[index]})`
         })
+        //辅助实现无缝轮播图效果
+        this.imgsCircle()
+        //将第三张和第四张的图片里的文字和按钮背景颜色设置为白色,按钮字体颜色设置为黑色
+        for(let i =2;i<=3;i++){
+            this.imgs[i].style.color = 'white'
+            this.imgs[i].querySelector('.btn').style.backgroundColor = 'white'
+            this.imgs[i].querySelector('.btn').style.color = 'black'
+        }
     },
     /**
      * 实现图片轮播的无缝连接效果
@@ -127,7 +135,7 @@ const banner = {
 }
 // 初始化轮播图逻辑和数据
 banner.init()
-banner.imgsCircle()
+
 // 定义两个函数，分别用于向左和向右移动图片，方便后续绑定事件和移除事件
 const leftMove = banner.leftMove.bind(banner)
 const rightMove = banner.rightMove.bind(banner)
@@ -157,3 +165,5 @@ window.addEventListener('transitionend',()=>{
 banner.timer = setInterval(()=>{
     banner.rightMove()
 },3000)
+
+

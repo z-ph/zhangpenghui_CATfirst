@@ -66,6 +66,9 @@
     display:flex;
     list-style:none;
 }
+.nav .nav-list.hidden{
+    display:none;
+}
 .nav .nav-list li{
     margin-right:48px;
 }
@@ -94,4 +97,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.header .more.hidden{
+    display:none;
+}
+.header input {
+    display: block;
+    border:none;
+    flex-grow: 1;
+}
+.header input:focus {
+    outline: none;
+}
+.header  input.hidden{
+    display:none;
 }
