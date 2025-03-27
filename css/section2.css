@@ -1,25 +1,18 @@
 /**
 *主要关于第二轮播图部分的css样式
 */
-@media (min-width:1025px) {
-    .section2 .section-title {
-        flex: 0 0 280px;
-    }
-    .section2 .section-banner{
-        flex-grow: 1;
-    }
-
-}
-.section2 .section-title {
-    flex: 0 0 280px;
-}
-
 .section2 .container {
     display: flex;
     margin: 160px 0;
     padding: 0 60px;
     height: 778px;
 }
+
+.section2 .section-title {
+    flex: 0 0 280px;
+}
+
+
 .section2 .section-title .year-container{
     background-color: #262626;
     border-radius: 4px;
@@ -61,13 +54,6 @@
     margin-bottom:16px;
 }
 
-/* section .section-banner .btn-container{
-    position:absolute;
-    width:100%;
-    top:0;
-    height:100%;
-    z-index:-1;
-} */
 .section2 .section-banner .left,
 .section2 .section-banner .right{
     opacity: 1;
@@ -127,9 +113,7 @@
     cursor: pointer;
     position:relative;
 }
-/* section .section-banner .more.img .dot:hover{
-    background-color: red;
-} */
+
 .section2 .section-banner .more.img:hover::before{
     content:'';
     display: block;
@@ -139,17 +123,7 @@
     border: 12px solid transparent;
     border-bottom: 12px solid #fff;
 }
-/* section .section-banner .more.img:hover::after{
-    content:'';
-    display: block;
-    width: 98px;
-    height: 83px;
-    position: absolute;
-    top: 44px;
-    right:6px;
-    background-color: #fff;
-    border-radius: 8px;
-} */
+
 .section2 .section-banner .more.img .item{
     display:none;
 
@@ -206,4 +180,11 @@
     font-size: 1rem;
     line-height: 1.35;
     margin:40px 16px;
+}
+
+@media (max-width:1025px){
+    /* 宽度小于1025px时，将第二轮播图部分改为竖向排列 */
+    .section2 .container{
+        flex-direction: column;
+    }
 }

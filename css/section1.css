@@ -14,13 +14,13 @@
 
 }
 
-.main .btn-container {
+.main .section1 {
     position: relative;
     height: 460px;
     overflow: hidden;
 }
 
-.main .btn-container .img-container {
+.main .section1 .img-container {
     margin-bottom: 80px;
     position: relative;
     height: 460px;
@@ -32,7 +32,7 @@
     flex-wrap: nowrap; */
 }
 
-.main .btn-container .img-container .img {
+.main .section1 .img-container .img {
     /* flex-flow: row; */
     background: no-repeat center/cover;
     display: inline-block;
@@ -45,7 +45,7 @@
 
 }
 
-.main .btn-container .img-container .img .subheader {
+.main .section1 .img-container .img .subheader {
     font-size: 16px;
     height: 24px;
     margin-bottom: 12px;
@@ -53,47 +53,47 @@
 }
 
 @media (max-height:767px) {
-    .main .btn-container .img-container .img .title {
+    .main .section1 .img-container .img .title {
         font-size: 2.2rem;
         max-width: 580px;
     }
 
-    .main .btn-container .img-container .img .description {
+    .main .section1 .img-container .img .description {
         font-size: 18px;
         max-width: 620px;
     }
 }
 
 @media (max-width:600px) {
-    .main .btn-container .img-container .img .title {
+    .main .section1 .img-container .img .title {
         font-size: 8.4vw;
     }
 
-    .main .btn-container .img-container .img .description {
+    .main .section1 .img-container .img .description {
         font-size: 4.2vw;
         max-width: 620px;
     }
 }
 
-.main .btn-container .img-container .img .title {
+.main .section1 .img-container .img .title {
     margin-bottom: 12px;
     line-height: 1.05;
     font-weight: bold;
     display: block;
 }
 
-.main .btn-container .img-container .img .description {
+.main .section1 .img-container .img .description {
     display: block;
     white-space: wrap;
     line-height: 1.4;
     font-weight: 400;
 }
 
-.main .btn-container .img-container .img .link {
+.main .section1 .img-container .img .link {
     margin-top: 20px;
 }
 
-.main .btn-container .img-container .img .link .btn {
+.main .section1 .img-container .img .link .btn {
     margin: 0;
     padding: 8px 24px;
     box-shadow: none;
@@ -110,8 +110,8 @@
     font-family: neuehaasgrotesktext pro, Helvetica, Arial, sans-serif;
 }
 
-.main .btn-container .left,
-.main .btn-container .right {
+.main .section1 .left,
+.main .section1 .right {
     z-index: 1;
     width: 36px;
     height: 80px;
@@ -129,12 +129,12 @@
     transition: opacity 0.3s;
 }
 
-.main .btn-container .left {
+.main .section1 .left {
     left: 12px;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
 }
 
-.main .btn-container .right {
+.main .section1 .right {
     right: 12px;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
 }
@@ -145,8 +145,8 @@
 } */
 
 /* 鼠标移入图片时，按钮显示 */
-.main .btn-container:hover .left,
-.main .btn-container:hover .right {
+.main .section1:hover .left,
+.main .section1:hover .right {
     opacity: 1;
 }
 
