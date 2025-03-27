@@ -1,0 +1,209 @@
+/**
+*主要关于第二轮播图部分的css样式
+*/
+@media (min-width:1025px) {
+    .section2 .section-title {
+        flex: 0 0 280px;
+    }
+    .section2 .section-banner{
+        flex-grow: 1;
+    }
+
+}
+.section2 .section-title {
+    flex: 0 0 280px;
+}
+
+.section2 .container {
+    display: flex;
+    margin: 160px 0;
+    padding: 0 60px;
+    height: 778px;
+}
+.section2 .section-title .year-container{
+    background-color: #262626;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 17.6px;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.section2 .section-title h2{
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+.section2 .section-title p a{
+    font-size: 20px;
+    line-height: 1.5;
+}
+.section2 .section-title p a span{
+    text-decoration: underline;
+}
+.section2 .section-banner{
+    flex-grow: 1;
+    overflow: hidden;
+    position:relative;
+    /* aspect-ratio:36/25; */
+}
+.section2 .section-banner .imgs{
+    display: flex;
+    gap:40px;
+    transition:transform 1s ;
+}
+.section2 .section-banner .imgs .img-container2 img{
+    width: 428px;
+    height: 642px;
+    margin-bottom:16px;
+}
+
+/* section .section-banner .btn-container{
+    position:absolute;
+    width:100%;
+    top:0;
+    height:100%;
+    z-index:-1;
+} */
+.section2 .section-banner .left,
+.section2 .section-banner .right{
+    opacity: 1;
+    background-color: rgba(0 0 0 /12%);
+    width: 40px;
+    height: 120px;
+    cursor: pointer;
+    margin:auto 20px;
+    position:absolute;
+    top:0;
+    bottom:0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 40px;
+    border-radius: 8px;
+}
+
+.section2 .section-banner .left {
+    left: 12px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+}
+
+.section2 .section-banner .right {
+    right: 12px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+}
+
+.section2 .section-banner  .left:hover,
+.section2 .section-banner  .right:hover{
+    background-color: rgba(0 0 0 / 24%);
+}
+
+.section2 .section-banner .img-container2{
+    position:relative;
+}
+.section2 .section-banner .more.img{
+    width: 72px;
+    padding-left:26px;
+    height: 44px;
+    position: absolute;
+    top:0;
+    right:0;
+    display: flex;
+    align-items: center;
+    gap:5px;
+    background-image: linear-gradient(225deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 50%);
+    cursor: pointer;
+    z-index: 2;
+}
+.section2 .section-banner .more.img .dot{
+
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 12px 0px;
+    cursor: pointer;
+    position:relative;
+}
+/* section .section-banner .more.img .dot:hover{
+    background-color: red;
+} */
+.section2 .section-banner .more.img:hover::before{
+    content:'';
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    border: 12px solid transparent;
+    border-bottom: 12px solid #fff;
+}
+/* section .section-banner .more.img:hover::after{
+    content:'';
+    display: block;
+    width: 98px;
+    height: 83px;
+    position: absolute;
+    top: 44px;
+    right:6px;
+    background-color: #fff;
+    border-radius: 8px;
+} */
+.section2 .section-banner .more.img .item{
+    display:none;
+
+
+}
+.section2 .section-banner .more.img:hover .item{
+    opacity: 1;
+    display: block;
+    width: 98px;
+    height: 83px;
+    position: absolute;
+    top: 44px;
+    right:6px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+.section2 .section-banner .more.img:hover .item .save,
+.section2 .section-banner .more.img:hover .item .share{
+    flex-grow:1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section2 .section-banner .more.img:hover .item .save{
+    border-bottom: 1px solid #e5e5e5;
+}
+.section2 .section-banner .more.img:hover .item .save:hover,
+.section2 .section-banner .more.img:hover .item .share:hover{
+    background-color: #f5f5f5;
+}
+
+.section2 .section-banner .imgs .img-container2 .img img:hover{
+    opacity: 0.5;
+}
+
+.section2 .section-banner .imgs .img-container2 .description{
+    width: 428px;
+    height: 642px;
+    margin-bottom:16px;
+    position:absolute;
+    top:0;
+    opacity: 0;
+}
+.section2 .section-banner .imgs .img-container2 .description:hover{
+    opacity: 1;
+    background-color: rgba(255,255,255,.9);
+}
+.section2 .section-banner .imgs .img-container2 .description .text{
+    font-size: 1rem;
+    line-height: 1.35;
+    margin:40px 16px;
+}
