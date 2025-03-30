@@ -1,0 +1,71 @@
+.section5 {
+    position: relative;
+    padding: 60px;
+    width: 100%;
+}
+
+.section5 .container {
+    height: 945px;
+    width: 100%;
+    display: flex;
+}
+
+
+
+.section5 .container .title {
+    width: 280px;
+    height: 100%;
+    padding-right: 40px;
+}
+
+.section5 .container .content {
+    height: 100%;
+    flex-grow: 1;
+    display: grid;
+    grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+    gap: 10px;
+}
+
+.section5 .wrapper {
+    position: relative;
+    width: 28vw;
+}
+
+.section5 img {
+    opacity: 1;
+    transition: opacity 0.5s;
+    width: 100%;
+    height: 18.6vw;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.section5 img:hover {
+    opacity: 0.8;
+}
+
+.section5 .text {
+    margin-top: 20px;
+    width: 100%;
+    height: 16vw;
+}
+
+@media (max-width:1025px) {
+
+    /* 宽度小于1025px时，将第二轮播图部分改为竖向排列 */
+    .section5 .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .section5 img {
+        width: 100%;
+        height: 27.2vw;
+    }
+
+    .section5 .wrapper {
+        width: 40vw;
+    }
+
+
+}

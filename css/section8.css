@@ -1,0 +1,25 @@
+.section8 .container{
+    --contaniner-scroll-width: 0;
+    height:234px;
+    display: flex;
+    /* animation: section8-banner-move 10s linear infinite; */
+}
+.section8 .container.animate{
+    animation: section8-banner-move 18s linear infinite;
+}
+.section8 .wrapper{
+    overflow: hidden;
+}
+.section8 img{
+    height:234px;
+    width:234px;
+    object-fit: contain;
+}
+@keyframes section8-banner-move {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(var(--container-scroll-width));
+    }
+}

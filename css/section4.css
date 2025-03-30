@@ -1,0 +1,61 @@
+.section4 {
+    position: relative;
+    height: 360px;
+    width: 100%;
+    background: #008c8c;
+    margin: 96px 0;
+}
+
+.section4 img {
+    height: 360px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.section4 .slider-content {
+    width: 80%;
+    height: 100%;
+    left: 10%;
+    position: absolute;
+    top: 0;
+    font-size: 34px;
+
+}
+
+.section4 .slider-text {
+    width: 100%;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.5s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    user-select: none;
+    cursor: grab;
+}
+
+
+.section4 .slider-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    display: flex;
+}
+
+.section4 .slider-dot .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: rgba(0 0 0 /20%);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-text:not(.selected) {
+    opacity: 0;
+}
+.section4 .dot.selected{
+    background: #fff;
+}
