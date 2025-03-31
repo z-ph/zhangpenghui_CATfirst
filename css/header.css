@@ -3,93 +3,116 @@
 */
 
 .header {
-    width:100%;
+    width: 100%;
     position: fixed;
+    /*
+    使用了固定定位，则可以不需要设置溢出隐藏
+     */
     top: 0;
     height: 136px;
-    /* border: 1px solid; */
-    z-index:2;
+    z-index: 2;
 }
 
+/* 两种方法让子元素排成一行，
+第一种：父元素设置display:flex;
+第二种：父元素设置white-space:nowrap; 子元素设置display:inline-block;
+第二种方法会有空白折叠的现象，如果需要解决空白折叠，可以通过设置父元素font-size为0;然后重新设置子元素的font-size;
+*/
 .banner {
     width: 100%;
-    display: block;
     height: 36px;
     display: flex;
-    background-color: rgb(222,203,228);
+    background-color: rgb(222, 203, 228);
     cursor: pointer;
 }
 
-
 .img-container {
     height: 460px;
-    margin-bottom:80px;
+    margin-bottom: 80px;
 }
 
-.header .banner ul{
+.header .banner ul {
     white-space: nowrap;
-    animation:scroll 10s linear infinite;
-    height:36px;
+    animation: scroll 10s linear infinite;
+    height: 36px;
     line-height: 36px;
 }
-.header .banner ul li{
+
+.header .banner ul li {
     display: inline-block;
-    list-style: none;
 }
+
+/* 关键帧动画
+给重复的基本单元设置关键帧动画
+*/
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
 
     100% {
+        /* 
+        如果
+        重复单元
+        没有超出容器宽度而被隐藏
+        或者祖先元素是固定定位没有使用溢出隐藏
+        可以直接使用translateX(-100%)
+         */
         transform: translateX(-100%);
     }
 }
-.header .banner:hover ul{
+
+.header .banner:hover ul {
     animation-play-state: paused;
 }
-.nav{
-    padding:0 60px;
-    /* padding:0 60px; */
-    height:100px;
-    display:flex;
-    align-items:center;
-    position:relative;
+
+.nav {
+    padding: 0 60px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
     justify-content: space-between;
     background-color: #fff;
 }
-.nav .logo{
-    margin-right:48px;
+
+.nav .logo {
+    margin-right: 48px;
 
 }
+
 .nav .nav-list {
-    display:flex;
-    list-style:none;
+    display: flex;
+    list-style: none;
 }
-.nav .nav-list.hidden{
-    display:none;
+
+.nav .nav-list.hidden {
+    display: none;
 }
-.nav .nav-list li{
-    margin-right:48px;
+
+.nav .nav-list li {
+    margin-right: 48px;
 }
-.nav .nav-list li i::before{
-    content:"❤";
-    color:black;
+
+.nav .nav-list li i::before {
+    content: "❤";
+    color: black;
     cursor: pointer;
 }
-.nav .nav-list li i:hover::before{
-    color:red;
+
+.nav .nav-list li i:hover::before {
+    color: red;
 }
 
-
-
-.icon{
-    display:flex;
+.icon {
+    display: flex;
     justify-content: flex-end;
-    right:0;
-    gap:14px;
+    right: 0;
+    gap: 14px;
 }
-.header .search-bar,.header .more{
+
+.header .search-bar,
+.header .more {
     font-size: 10px;
     width: 36px;
     height: 36px;
@@ -98,17 +121,21 @@
     justify-content: center;
     align-items: center;
 }
-.header .more.hidden{
-    display:none;
+
+.header .more.hidden {
+    display: none;
 }
+
 .header input {
     display: block;
-    border:none;
+    border: none;
     flex-grow: 1;
 }
+
 .header input:focus {
     outline: none;
 }
-.header  input.hidden{
-    display:none;
+
+.header input.hidden {
+    display: none;
 }

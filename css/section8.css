@@ -1,25 +1,41 @@
-.section8 .container{
+.section8 .container {
     --contaniner-scroll-width: 0;
-    height:234px;
+    height: 234px;
     display: flex;
     /* animation: section8-banner-move 10s linear infinite; */
 }
-.section8 .container.animate{
+
+.section8 .container.animate {
     animation: section8-banner-move 18s linear infinite;
 }
-.section8 .wrapper{
+
+.section8 .wrapper {
     overflow: hidden;
 }
-.section8 img{
-    height:234px;
-    width:234px;
+
+.section8 img {
+    height: 234px;
+    width: 234px;
     object-fit: contain;
 }
+
 @keyframes section8-banner-move {
-    0%{
+    0% {
         transform: translateX(0);
     }
-    100%{
+
+    100% {
+        /* 
+        祖先元素不是固定定位
+        而且循环的基本单位超出了容器被隐藏了一部分
+        不能直接使用translateX(-100%)，因为这个百分比
+        相对的是被溢出隐藏后的宽度
+        需要使用js获取scroll-width即真实宽度，结合css变量来完成
+        */
         transform: translateX(var(--container-scroll-width));
     }
+}
+
+.section8 .container.animate:hover {
+    animation-play-state: paused;
 }
